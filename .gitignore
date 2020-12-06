@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs/FreePuzzle
+/FreePuzzle/obj
+/FreePuzzle/bin/Debug/netcoreapp3.1
+/FreePuzzle/.vs/FreePuzzle
