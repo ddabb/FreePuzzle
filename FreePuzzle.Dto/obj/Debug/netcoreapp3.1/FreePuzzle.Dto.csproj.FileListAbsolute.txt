@@ -6,3 +6,4 @@ D:\Git\FreePuzzle\FreePuzzle.Dto\obj\Debug\netcoreapp3.1\FreePuzzle.Dto.Assembly
 D:\Git\FreePuzzle\FreePuzzle.Dto\obj\Debug\netcoreapp3.1\FreePuzzle.Dto.csproj.CoreCompileInputs.cache
 D:\Git\FreePuzzle\FreePuzzle.Dto\obj\Debug\netcoreapp3.1\FreePuzzle.Dto.dll
 D:\Git\FreePuzzle\FreePuzzle.Dto\obj\Debug\netcoreapp3.1\FreePuzzle.Dto.pdb
+D:\Git\FreePuzzle\FreePuzzle.Dto\obj\Debug\netcoreapp3.1\FreePuzzle.Dto.csprojAssemblyReference.cache
