@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreePuzzle.Service", "..\Fr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreePuzzle.UnitTest", "..\FreePuzzle.UnitTest\FreePuzzle.UnitTest.csproj", "{AEE0DEC3-B117-4307-B3F1-405EE25EA932}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "..\docker-compose.dcproj", "{A2C483E8-74CC-4578-AD1C-C36965852BD9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{AEE0DEC3-B117-4307-B3F1-405EE25EA932}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEE0DEC3-B117-4307-B3F1-405EE25EA932}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEE0DEC3-B117-4307-B3F1-405EE25EA932}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2C483E8-74CC-4578-AD1C-C36965852BD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2C483E8-74CC-4578-AD1C-C36965852BD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2C483E8-74CC-4578-AD1C-C36965852BD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2C483E8-74CC-4578-AD1C-C36965852BD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

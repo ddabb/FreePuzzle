@@ -7,16 +7,17 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["FreePuzzlie.Api/FreePuzzlie.Api.csproj", "FreePuzzlie.Api/"]
-RUN dotnet restore "FreePuzzlie.Api/FreePuzzlie.Api.csproj"
+COPY ["FreePuzzle.Api.csproj", "FreePuzzle.Api/"]
+RUN dotnet restore "FreePuzzle.Api/FreePuzzle.Api.csproj"
 COPY . .
-WORKDIR "/src/FreePuzzlie.Api"
-RUN dotnet build "FreePuzzlie.Api.csproj" -c Release -o /app/build
+WORKDIR "/src/FreePuzzle.Api"
+RUN dotnet build "FreePuzzle.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "FreePuzzlie.Api.csproj" -c Release -o /app/publish
+RUN dotnet publish "FreePuzzle.Api.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "FreePuzzlie.Api.dll"]
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' >/etc/timezone
+ENTRYPOINT ["dotnet", "FreePuzzle.Api.dll"]
