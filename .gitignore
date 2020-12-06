@@ -1,18 +1,12 @@
 ﻿################################################################################
 # 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
 ################################################################################
-
 /.vs/FreePuzzle
-/FreePuzzle/obj
-/FreePuzzle/bin/Debug/netcoreapp3.1
-/FreePuzzle/.vs/FreePuzzle
-/FreePuzzle/bin/Debug
-/FreePuzzle.Api/bin/Debug/netcoreapp3.1
-/FreePuzzle.Api/obj
 *.user
-/FreePuzzle.Models/bin/Debug/netcoreapp3.1
-/FreePuzzle.Models/obj
-/FreePuzzle.Service/obj
-/FreePuzzle.Service/bin/Debug/netcoreapp3.1
-/FreePuzzle.UnitTest/bin/Debug/netcoreapp3.1
-/FreePuzzle.UnitTest/obj
+# compiled files
+obj
+bin
+# user files
+.user
+.suo
+/FreePuzzle/.vs/FreePuzzle/DesignTimeBuild
