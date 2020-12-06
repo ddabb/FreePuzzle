@@ -6,4 +6,4 @@ services:
       context: .
       dockerfile: FreePuzzle.Api/Dockerfile
     ports:
-      - "6061:6061"
+      - "6061:6066"

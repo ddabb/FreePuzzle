@@ -7,7 +7,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["FreePuzzle.Api.csproj", "FreePuzzle.Api/"]
+COPY ["FreePuzzle.Api/FreePuzzle.Api.csproj", "FreePuzzle.Api/"]
 RUN dotnet restore "FreePuzzle.Api/FreePuzzle.Api.csproj"
 COPY . .
 WORKDIR "/src/FreePuzzle.Api"
