@@ -7,3 +7,12 @@
 /FreePuzzle/bin/Debug/netcoreapp3.1
 /FreePuzzle/.vs/FreePuzzle
 /FreePuzzle/bin/Debug
+/FreePuzzle.Api/bin/Debug/netcoreapp3.1
+/FreePuzzle.Api/obj
+*.user
+/FreePuzzle.Models/bin/Debug/netcoreapp3.1
+/FreePuzzle.Models/obj
+/FreePuzzle.Service/obj
+/FreePuzzle.Service/bin/Debug/netcoreapp3.1
+/FreePuzzle.UnitTest/bin/Debug/netcoreapp3.1
+/FreePuzzle.UnitTest/obj
