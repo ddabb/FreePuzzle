@@ -1,8 +1,0 @@
-D:\Git\FreePuzzle\FreePuzzleDto\bin\Debug\netcoreapp3.1\FreePuzzleDto.deps.json
-D:\Git\FreePuzzle\FreePuzzleDto\bin\Debug\netcoreapp3.1\FreePuzzleDto.dll
-D:\Git\FreePuzzle\FreePuzzleDto\bin\Debug\netcoreapp3.1\FreePuzzleDto.pdb
-D:\Git\FreePuzzle\FreePuzzleDto\obj\Debug\netcoreapp3.1\FreePuzzleDto.AssemblyInfoInputs.cache
-D:\Git\FreePuzzle\FreePuzzleDto\obj\Debug\netcoreapp3.1\FreePuzzleDto.AssemblyInfo.cs
-D:\Git\FreePuzzle\FreePuzzleDto\obj\Debug\netcoreapp3.1\FreePuzzleDto.csproj.CoreCompileInputs.cache
-D:\Git\FreePuzzle\FreePuzzleDto\obj\Debug\netcoreapp3.1\FreePuzzleDto.dll
-D:\Git\FreePuzzle\FreePuzzleDto\obj\Debug\netcoreapp3.1\FreePuzzleDto.pdb
