@@ -11,3 +11,4 @@ bin
 .suo
 /FreePuzzle/.vs/FreePuzzle/DesignTimeBuild
 /FreePuzzle.Api/.vs/FreePuzzle/DesignTimeBuild
+/使用阿里云镜像.bat
