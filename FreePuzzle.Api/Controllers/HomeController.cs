@@ -14,8 +14,8 @@ namespace FreePuzzle.Api.Controllers
         [HttpGet]
         public String Get()
         {
-      
-            return "Hello, Free Puzzle";
+
+            return $"Hello, Free Puzzle! {DateTime.Now}";
         }
     }
 }
