@@ -8,7 +8,6 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 COPY . /app
 
 WORKDIR "/app"
-#WORKDIR "/src/HmaServer"
 RUN dotnet build "FreePuzzle.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
