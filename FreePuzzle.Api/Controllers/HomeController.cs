@@ -15,7 +15,7 @@ namespace FreePuzzle.Api.Controllers
         public String Get()
         {
 
-            return $"Hello, Free Puzzle On Docker By Ci!\r\n {DateTime.Now.ToString("yyyy.MM.dd HH.mm.ss.fff")}";
+            return $"Hello, Free Puzzle On Docker By 测试自动化集成!\r\n {DateTime.Now.ToString("yyyy.MM.dd HH.mm.ss.fff")}";
         }
     }
 }
