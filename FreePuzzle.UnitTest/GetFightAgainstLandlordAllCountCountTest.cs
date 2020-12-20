@@ -8,7 +8,7 @@ namespace FreePuzzle.UnitTest
 {
     public class GetFightAgainstLandlordAllCountCountTest:TestBase
     {
-        [Fact(Skip ="数据库配置不正确")]
+        [Fact]
         public void Test()
         {
             IniType<GetFightAgainstLandlordAllCountCountService>().Solve();
