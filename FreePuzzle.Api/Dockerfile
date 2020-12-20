@@ -5,10 +5,9 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
-COPY . /app
-COPY ../FreePuzzle.Service/FreePuzzle.Service.csproj /FreePuzzle.Service.csproj
-
-WORKDIR "/app"
+COPY .. /app
+#将dockfile上一级目录的所有文件拷贝到当前app目录
+WORKDIR "/app/FreePuzzle.Api"
 RUN dotnet build "FreePuzzle.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
