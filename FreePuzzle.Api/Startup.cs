@@ -1,3 +1,5 @@
+using Autofac;
+using FreePuzzle.Service.Modules;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -40,6 +42,11 @@ namespace FreePuzzlie.Api
             {
                 endpoints.MapControllers();
             });
+        }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {   
+            ModuleEntry.Register(builder);
         }
     }
 }

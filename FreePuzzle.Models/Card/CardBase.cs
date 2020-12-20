@@ -1,14 +1,32 @@
 ﻿namespace FreePuzzle.Models.Card
 {
-    public  class CardBase
+    public abstract class CardBase
     {
+        public CardBase() { }
+        public CardBase(long landlord,long farmer1, long farmer2) {
+            Landlord = landlord;
+            Farmer1 = farmer1;
+            Farmer2 = farmer2;
+            CardAllCount = landlord + farmer1 + farmer2;
+        }
+        public abstract string Name { get;}
         /// <summary>
         /// 地主
         /// </summary>
         public long Landlord { get; set; }
-
+        /// <summary>
+        /// 农民1
+        /// </summary>
         public long Farmer1  { get; set; }
 
+        /// <summary>
+        /// 农民2
+        /// </summary>
         public long Farmer2 { get; set; }
+
+        /// <summary>
+        /// 卡牌总计数
+        /// </summary>
+        public long CardAllCount { get; set; }
     }
 }

@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FreePuzzle.Service\FreePuzzle.Service.csproj" />
     <ProjectReference Include="..\FreePuzzle\FreePuzzle.csproj" />
   </ItemGroup>
 
