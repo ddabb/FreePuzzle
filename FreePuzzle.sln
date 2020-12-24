@@ -17,8 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreePuzzle.UnitTest", "Free
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{208A1578-6319-44BB-8C0A-9FFEC59BEFD3}"
 	ProjectSection(SolutionItems) = preProject
+		Dockerfile = Dockerfile
 		使用阿里云镜像.bat = 使用阿里云镜像.bat
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreePuzzle.UI", "FreePuzzle.UI\FreePuzzle.UI.csproj", "{D4DC3B2D-3DED-4FD5-9051-B6C9CC5B5A94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +53,10 @@ Global
 		{63E67D8E-2F05-4638-A916-5E7DEBE48D7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63E67D8E-2F05-4638-A916-5E7DEBE48D7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63E67D8E-2F05-4638-A916-5E7DEBE48D7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4DC3B2D-3DED-4FD5-9051-B6C9CC5B5A94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4DC3B2D-3DED-4FD5-9051-B6C9CC5B5A94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4DC3B2D-3DED-4FD5-9051-B6C9CC5B5A94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4DC3B2D-3DED-4FD5-9051-B6C9CC5B5A94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
