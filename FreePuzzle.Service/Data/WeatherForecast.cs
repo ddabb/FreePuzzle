@@ -1,6 +1,6 @@
 using System;
 
-namespace FreePuzzle.UI.Data
+namespace FreePuzzle.Service.Data
 {
     public class WeatherForecast
     {

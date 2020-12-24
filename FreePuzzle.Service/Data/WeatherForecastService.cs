@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FreePuzzle.UI.Data
+namespace FreePuzzle.Service.Data
 {
     public class WeatherForecastService
     {

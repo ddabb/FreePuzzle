@@ -1,4 +1,4 @@
-using FreePuzzle.UI.Data;
+using FreePuzzle.Service.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
