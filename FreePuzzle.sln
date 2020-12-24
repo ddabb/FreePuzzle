@@ -21,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		使用阿里云镜像.bat = 使用阿里云镜像.bat
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreePuzzle.UI", "FreePuzzle.UI\FreePuzzle.UI.csproj", "{D4DC3B2D-3DED-4FD5-9051-B6C9CC5B5A94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreePuzzle.UI", "FreePuzzle.UI\FreePuzzle.UI.csproj", "{D4DC3B2D-3DED-4FD5-9051-B6C9CC5B5A94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
