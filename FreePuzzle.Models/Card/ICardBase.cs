@@ -1,11 +1,11 @@
 ﻿namespace FreePuzzle.Models.Card
 {
-    public interface ICardBase
+    public interface ICardBase 
     {
-        void Set(long landlord, long farmer1, long farmer2);
+        T Set<T>(T t,long landlord, long farmer1, long farmer2) where T:CardBase;
 
-        CardBase Clone();
+        T  Clone<T>(T t) where T : CardBase;
 
-       string Name { get; }
+        string Name { get; }
     }
 }

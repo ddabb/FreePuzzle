@@ -5,7 +5,14 @@ namespace FreePuzzle.Models.Card
     public abstract class CardBase: ICardBase
     {
         public CardBase() { }
+        public CardBase(long landlord, long farmer1, long farmer2)
+        {
+            Landlord = landlord;
+            Farmer1 = farmer1;
+            Farmer2 = farmer2;
+            CardAllCount = landlord + farmer1 + farmer2;
 
+        }
 
         public abstract string Name { get;}
         /// <summary>
@@ -31,12 +38,25 @@ namespace FreePuzzle.Models.Card
           
         }
 
-        public CardBase Clone()
+
+        public T Set<T>(T t, long landlord, long farmer1, long farmer2) where T : CardBase
         {
-            return (CardBase)this.MemberwiseClone();
+            t= t.Clone(t);
+            t.Landlord = landlord;
+            t.Farmer1 = farmer1;
+            t.Farmer2 = farmer2;
+            t.CardAllCount = landlord + farmer1 + farmer2;
+            return t;
         }
 
-      
+        public T Clone<T>(T t) where T : CardBase
+        {
+            return (T)t.MemberwiseClone();
+        }
+
+
+
+
 
         /// <summary>
         /// 卡牌总计数
