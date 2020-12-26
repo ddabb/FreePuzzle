@@ -1,10 +1,12 @@
 ﻿using FreePuzzle.Models.Card;
 using FreePuzzle.Service.Modules;
+using FreeSql;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 namespace FreePuzzle.Service
 {
-    public class GetFightAgainstLandlordAllCountCountService : FreePuzzleServiceBase
+	public class GetFightAgainstLandlordAllCountCountService : FreePuzzleServiceBase
 	{
 		public IEnumerable<ICardBase> cards { get; set; }
 
@@ -71,30 +73,28 @@ namespace FreePuzzle.Service
 				List<CardK> CardKs = GetNormalCardList(new CardK());
 				List<CardSmallJoker> smallJokers = GetJokerCardList(new CardSmallJoker());
 				List<CardBigJoker> bigJokers = GetJokerCardList(new CardBigJoker());
-				freeSql.Delete<Card1>().Where("landlord<> null").ExecuteAffrows();
-				freeSql.Delete<Card2>().Where("landlord<> null").ExecuteAffrows();
-				freeSql.Delete<Card3>().Where("landlord<> null").ExecuteAffrows();
-				freeSql.Delete<Card4>().Where("landlord<> null").ExecuteAffrows();
-				freeSql.Delete<Card5>().Where("landlord<> null").ExecuteAffrows();
-				freeSql.Delete<Card6>().Where("landlord<> null").ExecuteAffrows();
-				freeSql.Delete<Card7>().Where("landlord<> null").ExecuteAffrows();
-				freeSql.Delete<Card8>().Where("landlord<> null").ExecuteAffrows();
-				freeSql.Delete<Card9>().Where("landlord<> null").ExecuteAffrows();
-				freeSql.Delete<Card10>().Where("landlord<> null").ExecuteAffrows();
-				freeSql.Delete<CardJ>().Where("landlord<> null").ExecuteAffrows();
-				freeSql.Delete<CardQ>().Where("landlord<> null").ExecuteAffrows();
-				freeSql.Delete<CardK>().Where("landlord<> null").ExecuteAffrows();
-				freeSql.Delete<CardSmallJoker>().Where("landlord<> null").ExecuteAffrows();
-				freeSql.Delete<CardBigJoker>().Where("landlord<> null").ExecuteAffrows();
-				freeSql.Delete<distinctgroup_1_5>().Where("landlord<> null").ExecuteAffrows();
-				freeSql.Delete<distinctgroup_6_10>().Where("landlord<> null").ExecuteAffrows();
-				freeSql.Delete<distinctgroup_J_Joker>().Where("landlord<> null").ExecuteAffrows();
-				freeSql.Delete<CardGroup_1_2_3_4_5>().Where("landlord<> null").ExecuteAffrows();
-				freeSql.Delete<CardGroup_6_7_8_9_10>().Where("landlord<> null").ExecuteAffrows();
-				freeSql.Delete<CardGroup_J_Q_K_Jokers>().Where("landlord<> null").ExecuteAffrows();
-				freeSql.Delete<CardResult>().Where("allcount<> null").ExecuteAffrows();
-
-
+				freeSql.Delete<Card1>().Where("landlord<>-1").ExecuteAffrows();
+				freeSql.Delete<Card2>().Where("landlord<>-1").ExecuteAffrows();
+				freeSql.Delete<Card3>().Where("landlord<>-1").ExecuteAffrows();
+				freeSql.Delete<Card4>().Where("landlord<>-1").ExecuteAffrows();
+				freeSql.Delete<Card5>().Where("landlord<>-1").ExecuteAffrows();
+				freeSql.Delete<Card6>().Where("landlord<>-1").ExecuteAffrows();
+				freeSql.Delete<Card7>().Where("landlord<>-1").ExecuteAffrows();
+				freeSql.Delete<Card8>().Where("landlord<>-1").ExecuteAffrows();
+				freeSql.Delete<Card9>().Where("landlord<>-1").ExecuteAffrows();
+				freeSql.Delete<Card10>().Where("landlord<> -1").ExecuteAffrows();
+				freeSql.Delete<CardJ>().Where("landlord<>-1").ExecuteAffrows();
+				freeSql.Delete<CardQ>().Where("landlord<>-1").ExecuteAffrows();
+				freeSql.Delete<CardK>().Where("landlord<>-1").ExecuteAffrows();
+				freeSql.Delete<CardSmallJoker>().Where("landlord<> -1").ExecuteAffrows();
+				freeSql.Delete<CardBigJoker>().Where("landlord<> -1").ExecuteAffrows();
+				freeSql.Delete<distinctgroup_1_5>().Where("landlord<> -1").ExecuteAffrows();
+				freeSql.Delete<distinctgroup_6_10>().Where("landlord<> -1").ExecuteAffrows();
+				freeSql.Delete<distinctgroup_J_Joker>().Where("landlord<> -1").ExecuteAffrows();
+				freeSql.Delete<CardGroup_1_2_3_4_5>().Where("landlord<> -1").ExecuteAffrows();
+				freeSql.Delete<CardGroup_6_7_8_9_10>().Where("landlord<> -1").ExecuteAffrows();
+				freeSql.Delete<CardGroup_J_Q_K_Jokers>().Where("landlord<> -1").ExecuteAffrows();
+				freeSql.Delete<CardResult>().Where("allcount<>-1").ExecuteAffrows();
 
 				freeSql.Insert(card1s).ExecuteAffrows();
 				freeSql.Insert(Card2s).ExecuteAffrows();
@@ -112,42 +112,28 @@ namespace FreePuzzle.Service
 				freeSql.Insert(smallJokers).ExecuteAffrows();
 				freeSql.Insert(bigJokers).ExecuteAffrows();
 
+				var batchid = Guid.NewGuid().ToString().Replace("-","");
 
-				freeSql.Select<Card1, Card2, Card3, Card4, Card5>().Where(t => t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord <= 20
-&& t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1 <= 17
-&& t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2 <= 17
-).InsertInto<CardGroup_1_2_3_4_5>("", t => new CardGroup_1_2_3_4_5()
-{
-Landlord = t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord,
-Farmer1 = t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1,
-Farmer2 = t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2,
-CardAllCount = t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord + t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1 + t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2
-});
-
-
-
-				freeSql.Select<Card6, Card7, Card8, Card9, Card10>().Where(t => t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord <= 20
-	&& t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1 <= 17
-		&& t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2 <= 17
-).InsertInto<CardGroup_6_7_8_9_10>("", t => new CardGroup_6_7_8_9_10()
-{
-	Landlord = t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord,
-	Farmer1 = t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1,
-	Farmer2 = t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2,
-	CardAllCount = t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord + t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1 + t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2
-});
+				freeSql.Ado.ExecuteNonQuery(System.Data.CommandType.Text, IntoNewTable($"cardgroup1{batchid}", freeSql.Select<Card1, Card2, Card3, Card4, Card5>().Where(t => t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord <= 20
+				   && t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1 <= 17
+				   && t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2 <= 17
+				).ToSql<Card1>(t => new Card1 { Landlord = t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord, Farmer1 = t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1, Farmer2 = t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2 }, FieldAliasOptions.AsProperty))); ;
+				
+				freeSql.Ado.ExecuteNonQuery(System.Data.CommandType.Text, IntoNewTable($"cardgroup2{batchid}", freeSql.Select<Card6, Card7, Card8, Card9, Card10>().Where(t => t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord <= 20
+				   && t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1 <= 17
+				   && t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2 <= 17
+				).ToSql<Card1>(t => new Card1 { Landlord = t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord, Farmer1 = t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1, Farmer2 = t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2 }, FieldAliasOptions.AsProperty))); ;
+				
+				freeSql.Ado.ExecuteNonQuery(System.Data.CommandType.Text, IntoNewTable($"cardgroup3{batchid}", freeSql.Select<CardJ, CardQ, CardK, CardSmallJoker, CardBigJoker>().Where(t => t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord <= 20
+				   && t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1 <= 17
+				   && t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2 <= 17
+				).ToSql<Card1>(t => new Card1 { Landlord = t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord, Farmer1 = t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1, Farmer2 = t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2 }, FieldAliasOptions.AsProperty))); ;
 
 
-				freeSql.Select<CardJ, CardQ, CardK, CardSmallJoker, CardBigJoker>().Where(t => t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord <= 20
-	&& t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1 <= 17
-		&& t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2 <= 17
-).InsertInto<CardGroup_J_Q_K_Jokers>("", t => new CardGroup_J_Q_K_Jokers()
-{
-	Landlord = t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord,
-	Farmer1 = t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1,
-	Farmer2 = t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2,
-	CardAllCount = t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord + t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1 + t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2
-});
+
+				freeSql.Ado.ExecuteNonQuery(System.Data.CommandType.Text,$"select distinct  Landlord, Farmer1,Farmer2 into distinctgroup1{batchid} from cardgroup1{batchid}");
+				freeSql.Ado.ExecuteNonQuery(System.Data.CommandType.Text,$"select distinct  Landlord, Farmer1,Farmer2 into distinctgroup2{batchid} from cardgroup2{batchid}");
+				freeSql.Ado.ExecuteNonQuery(System.Data.CommandType.Text,$"select distinct  Landlord, Farmer1,Farmer2 into distinctgroup3{batchid} from cardgroup3{batchid}");
 
 
 
@@ -246,6 +232,11 @@ CardAllCount = t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t
 				throw;
 			}
 
+		}
+
+		private string IntoNewTable(string tableName, string sql)
+		{
+			return sql.Replace("FROM", $"INTO {tableName} FROM");
 		}
 	}
 }
