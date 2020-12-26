@@ -1,5 +1,8 @@
-﻿namespace FreePuzzle.Models.Card
+﻿using FreeSql.DataAnnotations;
+
+namespace FreePuzzle.Models.Card
 {
+    [Index("{tablename}_idx_AllCount", "AllCount")]
     public class CardResult
     {
         public long group1_Landlord { get; set; }

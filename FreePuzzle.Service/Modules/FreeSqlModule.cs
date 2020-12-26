@@ -19,7 +19,8 @@ namespace FreePuzzle.Service.Modules
     
 
             IFreeSql fsql = new FreeSqlBuilder()
-                .UseConnectionString(FreeSql.DataType.MySql, "Data Source=localhost;Port=3306;User ID=root;Password=root;Initial Catalog=FreePuzzle;Charset=utf8;SslMode=none")       
+                //.UseConnectionString(FreeSql.DataType.MySql, "Data Source=localhost;Port=3306;User ID=root;Password=root;Initial Catalog=FreePuzzle;Charset=utf8;SslMode=none")
+                     .UseConnectionString(FreeSql.DataType.SqlServer, "Data Source =localhost; Integrated Security = True; Initial Catalog =FreePuzzle; Pooling = true; Max Pool Size = 512")
                 .UseMonitorCommand(cmd => Trace.WriteLine($"{cmd.CommandText}\r\n"))
                 .UseAutoSyncStructure(true) //是否自动创建、迁移实体表结构
                 .UseNoneCommandParameter(true)

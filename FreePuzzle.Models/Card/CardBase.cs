@@ -1,7 +1,8 @@
 ﻿using System;
-
+using FreeSql.DataAnnotations;
 namespace FreePuzzle.Models.Card
 {
+    [Index("{tablename}_idx_Landlord", "Landlord")]
     public abstract class CardBase: ICardBase
     {
         public CardBase() { }
@@ -15,6 +16,7 @@ namespace FreePuzzle.Models.Card
         }
 
         public abstract string Name { get;}
+
         /// <summary>
         /// 地主
         /// </summary>
