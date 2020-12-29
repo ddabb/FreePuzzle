@@ -4,11 +4,11 @@ using System;
 using System.Collections.Generic;
 namespace FreePuzzle.Service
 {
-    public class GetFightAgainstLandlordAllCountCountService : FreePuzzleServiceBase
+    public class GetFightAgainstLandlordAllCountService : FreePuzzleServiceBase
     {
         public IEnumerable<ICardBase> cards { get; set; }
 
-        public GetFightAgainstLandlordAllCountCountService(IEnumerable<ICardBase> cards) : base()
+        public GetFightAgainstLandlordAllCountService(IEnumerable<ICardBase> cards) : base()
         {
             this.cards = cards;
         }
@@ -87,17 +87,13 @@ namespace FreePuzzle.Service
                 freeSql.Delete<CardQ>().Where("landlord<>-1").ExecuteAffrows();
                 freeSql.Delete<CardK>().Where("landlord<>-1").ExecuteAffrows();
                 freeSql.Delete<CardSmallJoker>().Where("landlord<> -1").ExecuteAffrows();
-                freeSql.Delete<CardBigJoker>().Where("landlord<> -1").ExecuteAffrows();
-                //freeSql.Delete<DistinctGroup>().Where("landlord<> -1").ExecuteAffrows();
+                freeSql.Delete<CardBigJoker>().Where("landlord<> -1").ExecuteAffrows();    
                 freeSql.Select<DistinctGroup>().Count();
                 freeSql.Select<CardGroup>().Count();
                 freeSql.Select<CardResult>().Count();
                 freeSql.Ado.ExecuteNonQuery("truncate table DistinctGroup;  ");
                 freeSql.Ado.ExecuteNonQuery("truncate table CardGroup;  ");
                 freeSql.Ado.ExecuteNonQuery("truncate table CardResult;  ");
-                //freeSql.Delete<CardGroup>().Where("1=1").ExecuteAffrows();
-
-                //freeSql.Delete<CardResult>().Where("1=1").ExecuteAffrows();
 
                 freeSql.Insert(card1s).ExecuteAffrows();
                 freeSql.Insert(Card2s).ExecuteAffrows();
@@ -118,8 +114,7 @@ namespace FreePuzzle.Service
                 var batchid = Guid.NewGuid().ToString().Replace("-", "");
 
 
-                //var repo = freeSql.GetRepository<CardGroup>();
-                /*		repo.AsTable(oldname => $"{oldname}{batchid}"); *///对 Log_201903 表 CRUD
+
 
                 freeSql.Select<Card1, Card2, Card3, Card4, Card5>().Where(t => t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord <= 20
                    && t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1 <= 17
@@ -135,32 +130,32 @@ namespace FreePuzzle.Service
 
                 );
 
-                freeSql.Select<Card6, Card7, Card8, Card9, Card10>().Where(t => t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord <= 20
-   && t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1 <= 17
-   && t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2 <= 17
-).InsertInto<CardGroup>("", t => new CardGroup
-{
+                                freeSql.Select<Card6, Card7, Card8, Card9, Card10>().Where(t => t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord <= 20
+                   && t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1 <= 17
+                   && t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2 <= 17
+                ).InsertInto<CardGroup>("", t => new CardGroup
+                {
 
-    Landlord = t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord,
-    Farmer1 = t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1,
-    Farmer2 = t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2,
-    GroupIndex = 2
-}
+                    Landlord = t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord,
+                    Farmer1 = t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1,
+                    Farmer2 = t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2,
+                    GroupIndex = 2
+                }
 
-);
-                freeSql.Select<CardJ, CardQ, CardK, CardSmallJoker, CardBigJoker>().Where(t => t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord <= 20
-   && t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1 <= 17
-   && t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2 <= 17
-).InsertInto<CardGroup>("", t => new CardGroup
-{
+                );
+                                freeSql.Select<CardJ, CardQ, CardK, CardSmallJoker, CardBigJoker>().Where(t => t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord <= 20
+                   && t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1 <= 17
+                   && t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2 <= 17
+                ).InsertInto<CardGroup>("", t => new CardGroup
+                {
 
-    Landlord = t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord,
-    Farmer1 = t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1,
-    Farmer2 = t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2,
-    GroupIndex = 3
-}
+                    Landlord = t.t1.Landlord + t.t2.Landlord + t.t3.Landlord + t.t4.Landlord + t.t5.Landlord,
+                    Farmer1 = t.t1.Farmer1 + t.t2.Farmer1 + t.t3.Farmer1 + t.t4.Farmer1 + t.t5.Farmer1,
+                    Farmer2 = t.t1.Farmer2 + t.t2.Farmer2 + t.t3.Farmer2 + t.t4.Farmer2 + t.t5.Farmer2,
+                    GroupIndex = 3
+                }
 
-);
+                );
 
                 (from a in freeSql.Select<CardGroup>().Where(c => c.GroupIndex == 1).Distinct()
                  select a).InsertInto<DistinctGroup>("", c => new DistinctGroup { GroupIndex = 1, Farmer1 = c.Farmer1, Landlord = c.Landlord, Farmer2 = c.Farmer2 });
