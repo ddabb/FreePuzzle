@@ -1,0 +1,23 @@
+﻿@page "/FightAgainstLandlordAllCount"
+@using FreePuzzle.Service
+@inject GetFightAgainstLandlordAllCountService CountService
+
+<h3>FightAgainstLandlordAllCount</h3>
+
+@if (solution == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+<h3>@solution.Desciption</h3>
+}
+
+@code {
+    private Solution solution;
+
+    protected override async Task OnInitializedAsync()
+    {
+        solution = await CountService.GetSolveAsync();
+    }
+}

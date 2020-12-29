@@ -2,6 +2,8 @@
 using FreePuzzle.Service.Modules;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+
 namespace FreePuzzle.Service
 {
     public class GetFightAgainstLandlordAllCountService : FreePuzzleServiceBase
@@ -52,6 +54,11 @@ namespace FreePuzzle.Service
             return cardList;
         }
 
+        public Task<Solution> GetSolveAsync()
+        {
+   
+            return Task.FromResult(Solve());
+        }
 
 
         public Solution Solve()
